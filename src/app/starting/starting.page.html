@@ -1,0 +1,92 @@
+<ion-content [fullscreen]="true">
+  <swiper-container>
+    <swiper-slide>
+      <div class="grid">
+        <div class="header">
+          <h1>BIENVENIDO</h1>
+        </div>
+        <div class="subtitle">
+          <h2>Ingresa ya a Estacionamiento DVJ</h2>
+        </div> 
+        <div class="body">
+          <div>
+            <img src="../../assets/ezgif.com-optimize.gif" alt="">
+          </div>
+        </div>
+        <div class="footer">
+          <div class="footer-items">
+            <div class="slider-indicator">
+              <span class="indicator-dot indicator-active"></span>
+              <span class="indicator-dot"></span>
+              <span class="indicator-dot"></span>
+            </div>
+            <ion-button (click)="nextSlide()" fill="clear" color="light">
+              <ion-icon name="arrow-forward-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div> 
+    </swiper-slide>
+    <swiper-slide>
+      <div class="grid">
+        <div class="header">
+          <h1>Busca</h1>
+        </div>
+        <div class="subtitle">
+          <h2>estacionamientos</h2>
+        </div> 
+        <div class="body">
+          <div>
+            <img src="../../assets/search.png" alt="" class="body-img">
+          </div>
+        </div>
+        <div class="footer">
+          <div class="footer-items">
+            <div class="slider-indicator">
+              <span class="indicator-dot"></span>
+              <span class="indicator-dot indicator-active"></span>
+              <span class="indicator-dot"></span>
+            </div>
+            <ion-button (click)="nextSlide()" fill="clear" color="light">
+              <ion-icon name="arrow-forward-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div> 
+    </swiper-slide>
+    <swiper-slide>
+      <div class="grid">
+        <div class="header">
+          <h1>Inicia Sesion</h1>
+        </div>
+        <div class="subtitle">
+          <h2>o regsitrate ya!</h2>
+        </div> 
+        <div class="body">
+          <div>
+            <img src="../../assets/perfil-vector.png" alt="" class="body-img">
+            <div class="body-label">
+              <ion-button fill="solid" shape="round" color="tertiary" href="/signin">Iniciar sesión</ion-button>
+            </div>
+            <div class="body-label">
+              <ion-button fill="outline" shape="round" color="tertiary">Registrarse</ion-button>
+            </div>
+            <div class="body-label">
+              <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="footer-items-3">
+            <div class="slider-indicator">
+              <span class="indicator-dot"></span>
+              <span class="indicator-dot"></span>
+              <span class="indicator-dot indicator-active"></span>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
+

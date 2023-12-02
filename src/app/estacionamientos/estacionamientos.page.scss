@@ -1,0 +1,37 @@
+.fondo{
+    background: rgba(211,231,241,1);
+    background: -moz-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(211,231,241,1)), color-stop(27%, rgba(211,231,241,1)), color-stop(69%, rgba(147,206,222,1)), color-stop(100%, rgba(73,165,191,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: linear-gradient(135deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3e7f1', endColorstr='#49a5bf', GradientType=1 );
+    min-height: 100%;
+}
+.body{
+    width: 90%;
+}
+.favorito{
+    background: rgb(252, 236, 15);
+    background-image: url(../../assets/silla-de-ruedas-2.png);
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 20%;
+}
+.favorito ion-item::part(native){
+    background: rgb(252, 236, 15);
+}
+.libre{
+    background: rgb(2, 219, 129);
+}
+.libre ion-item::part(native){
+    background: rgb(2, 219, 129);
+}
+.ocupado{
+    background: rgb(216, 101, 80);
+}
+.ocupado ion-item::part(native){
+    background: rgb(216, 101, 80);
+}

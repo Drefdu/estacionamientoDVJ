@@ -1,0 +1,62 @@
+.contenedor{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(211,231,241,1);
+    background: -moz-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(211,231,241,1)), color-stop(27%, rgba(211,231,241,1)), color-stop(69%, rgba(147,206,222,1)), color-stop(100%, rgba(73,165,191,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    background: linear-gradient(135deg, rgba(211,231,241,1) 0%, rgba(211,231,241,1) 27%, rgba(147,206,222,1) 69%, rgba(73,165,191,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3e7f1', endColorstr='#49a5bf', GradientType=1 );
+}
+
+.body{
+    background-color: #e9f7fd;
+    height: 100%;
+    width: 90%;
+    -webkit-border-radius: 40px 40px 40px 40px;
+    -moz-border-radius: 40px 40px 40px 40px;
+    border-radius: 40px 40px 40px 40px;
+    border: 0px solid #000000;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(161,161,161,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(161,161,161,1);
+    box-shadow: 10px 10px 5px 0px rgba(161,161,161,1);
+    display: grid;
+    grid-template-rows: 20% 20% auto 20%;
+}
+
+.body img{
+    max-width: 200px;
+}
+
+@media (min-width: 572px) {
+    .body{
+        width: 70%;
+        height: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    .body{
+        width: 60%;
+        height: 90%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .body{
+        width: 45%;
+        height: 90%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .body{
+        width: 35%;
+        height: 90%;
+    }
+}

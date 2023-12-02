@@ -1,0 +1,22 @@
+<ion-content class="ion-padding">
+    <h2>Filtros</h2>
+    <ion-list [inset]="false">
+        <ion-item lines="none">
+            <ion-checkbox #op1 slot="start" value="favoritos" [checked]="opciones.op1 == 'favoritos' ? true : false"></ion-checkbox>
+            <ion-label>Favoritos</ion-label>        
+        </ion-item>
+        <ion-item lines="none">
+            <ion-checkbox #op2 slot="start" value="discapacitados" [checked]="opciones.op2 == 'discapacitados' ? true : false"></ion-checkbox>
+            <ion-label>Discapacitados</ion-label>        
+        </ion-item>
+        <ion-item lines="none">
+            <ion-checkbox #op3 slot="start" value="ocupados" [checked]="opciones.op3 == 'ocupados' ? true : false"></ion-checkbox>
+            <ion-label>Ocupados</ion-label>        
+        </ion-item>
+        <ion-item lines="none">
+            <ion-checkbox #op4 slot="start" value="libres" [checked]="opciones.op4 == 'libres' ? true : false"></ion-checkbox>
+            <ion-label>Libres</ion-label>        
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="hola(op1, op2, op3, op4)" fill="block">Aceptar</ion-button>
+</ion-content>

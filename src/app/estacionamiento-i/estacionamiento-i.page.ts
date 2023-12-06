@@ -45,7 +45,7 @@ export class EstacionamientoIPage implements OnInit {
       this.filtrarOcupados();
       this.filtrarFavoritos();
       this.cdr.detectChanges();
-    }, 3000);
+    }, 4000);
   }
 
   async getEstacionamientos(){

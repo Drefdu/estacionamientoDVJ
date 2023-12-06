@@ -29,7 +29,7 @@ export class EstacionamientosPage implements OnInit {
   cantidadDiscapacitados = 0;
   cantidadLibres = 0;
   cantidadOcupados = 0;
-
+  sec = '';
 
 
   constructor(
@@ -42,51 +42,68 @@ export class EstacionamientosPage implements OnInit {
     this.getEstacionamientos();
     setInterval(() => {
       this.getEstacionamientos();
-      this.filtrarLibres();
-      this.filtrarOcupados();
-      this.filtrarFavoritos();
+      console.log("actualizando");
       this.cdr.detectChanges();
-    }, 3000);
+    }, 6000);
   }
 
   async getEstacionamientos(){
     (await this.database.getEstacionamiento()).subscribe((data) => {
       this.puestos = data;
-      this.filtrarFavoritos();
-      console.log(this.puestos);
+      this.filtrarSeccionPor();
+      this.cdr.detectChanges();
     }, (error) => {
       console.log(error);
     });
+    this.cdr.detectChanges();
   }
 
   filtrarSeccion(event: any) {
-    let seccion = event.detail.value;
-    this.seccion = this.puestos.filter((puesto: any) =>  puesto.seccion == seccion && puesto.estacionamiento == "H");
+    this.sec = event.detail.value;
+    this.seccion = this.puestos.filter((puesto: any) =>  puesto.seccion == this.sec && puesto.estacionamiento == "H");
     this.cantidadTotal = this.seccion.length;
     this.filtrarLibres();
     this.filtrarOcupados();
     this.filtrarFavoritos();
     this.cdr.detectChanges();
+    console.log("filtrado");
   }
+  filtrarSeccionPor() {
+    this.seccion = this.puestos.filter((puesto: any) =>  puesto.seccion == this.sec && puesto.estacionamiento == "H");
+    console.log(this.seccion);
+    this.cantidadTotal = this.seccion.length;
+    this.filtrarLibres();
+    this.filtrarOcupados();
+    this.filtrarFavoritos();
+    this.cdr.detectChanges();
+    console.log("filtrado");
+  }
+
+
 
   filtrarLibres(){
     this.libres = this.seccion.filter((puesto: any) => puesto.estado == 'Desocupado' && puesto.favorito == false);
     this.cantidadLibres = this.libres.length;
+    this.cdr.detectChanges();
   }
 
   filtrarOcupados(){
     this.ocupados = this.seccion.filter((puesto: any) => puesto.estado == 'Ocupado' && puesto.favorito == false);
     this.cantidadOcupados = this.ocupados.length;
+    console.log(this.ocupados);
+    this.cdr.detectChanges();
   }
 
   filtrarFavoritos(){
     this.favoritos = this.puestos.filter((puesto: any) => puesto.favorito == true);
     this.cantidadFavoritos = this.favoritos.length;
+    this.cdr.detectChanges();
   }
 
   filtrarDiscapacitados(){
     this.discapacitados = this.puestos.filter((puesto: any) => puesto.discapacitado == true);
     this.cantidadDiscapacitados = this.discapacitados.length;
+    this.cdr.detectChanges();
   }
 
   async addFavoritos(id: String, favorito: Boolean){

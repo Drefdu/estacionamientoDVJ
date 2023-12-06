@@ -76,6 +76,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ionic-loader
 
+ngx-cookie-service
+MIT
+
 rxjs
 Apache-2.0
                                Apache License

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1701862929486,
+  "timestamp": 1701879271649,
   "index": "https://Drefdu.github.io/estacionamientoDVJ/index.html",
   "assetGroups": [
     {
@@ -212,7 +212,7 @@
     "https://Drefdu.github.io/estacionamientoDVJ/assets/silla-de-ruedas-2.png": "b09fd929a2635576eac66124a503b7c6fa712406",
     "https://Drefdu.github.io/estacionamientoDVJ/assets/silla-de-ruedas.png": "3da2416e79c2f5797bad3de283166a4406d0bd4f",
     "https://Drefdu.github.io/estacionamientoDVJ/common.e3d367447d728ff8.js": "2d6d50572af32363403bffaaaff2fab094c891b5",
-    "https://Drefdu.github.io/estacionamientoDVJ/index.html": "4cda7f302ae1d996476d57c18cc435041e5bc5fc",
+    "https://Drefdu.github.io/estacionamientoDVJ/index.html": "8207c8e8b63f61da93a0fa1ba5acf10a1c9fb2c7",
     "https://Drefdu.github.io/estacionamientoDVJ/main.ec4a493735c2542d.js": "3d972dd2c2635cd33f9824389fabbc685dd165fd",
     "https://Drefdu.github.io/estacionamientoDVJ/manifest.webmanifest": "9a088b7c4339228d1082e666ce105dc889bc180c",
     "https://Drefdu.github.io/estacionamientoDVJ/polyfills-core-js.93f56369317b7a8e.js": "c8e9e4ae48fec22ae530c491f407d01f349509a9",

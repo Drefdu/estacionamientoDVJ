@@ -1,0 +1,31 @@
+h3 {
+    text-align: justify;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h4{
+    text-align: justify;
+    color: #646363;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ion-list{
+    background-color: #3881ff00;
+}
+.form-container {
+    padding: 40px;
+  }
+
+  .form-item {
+    --background: #6b7994;
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+  .submit-button {
+    --background: #3880ff;
+    --color: #fff;
+  }
+
+ion-content {
+  --background: #DFF3E8;
+}

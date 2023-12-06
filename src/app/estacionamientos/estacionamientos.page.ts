@@ -12,7 +12,6 @@ import { ChangeDetectorRef } from '@angular/core';
 export class EstacionamientosPage implements OnInit {
   @ViewChild('miDiv') miDiv: ElementRef | undefined;
 
-  contenido: string = '¡Hola!';
   opciones: any = {
     op1: 'favoritos',
     op2: 'discapacitados',
@@ -25,6 +24,12 @@ export class EstacionamientosPage implements OnInit {
   ocupados: any = [];
   favoritos: any = [];
   discapacitados: any = [];
+  cantidadTotal = 0;
+  cantidadFavoritos = 0;
+  cantidadDiscapacitados = 0;
+  cantidadLibres = 0;
+  cantidadOcupados = 0;
+
 
 
   constructor(
@@ -35,11 +40,19 @@ export class EstacionamientosPage implements OnInit {
 
   ngOnInit() {
     this.getEstacionamientos();
+    setInterval(() => {
+      this.getEstacionamientos();
+      this.filtrarLibres();
+      this.filtrarOcupados();
+      this.filtrarFavoritos();
+      this.cdr.detectChanges();
+    }, 3000);
   }
 
   async getEstacionamientos(){
     (await this.database.getEstacionamiento()).subscribe((data) => {
       this.puestos = data;
+      this.filtrarFavoritos();
       console.log(this.puestos);
     }, (error) => {
       console.log(error);
@@ -48,7 +61,8 @@ export class EstacionamientosPage implements OnInit {
 
   filtrarSeccion(event: any) {
     let seccion = event.detail.value;
-    this.seccion = this.puestos.filter((puesto: any) =>  puesto.seccion == seccion);
+    this.seccion = this.puestos.filter((puesto: any) =>  puesto.seccion == seccion && puesto.estacionamiento == "H");
+    this.cantidadTotal = this.seccion.length;
     this.filtrarLibres();
     this.filtrarOcupados();
     this.filtrarFavoritos();
@@ -57,17 +71,25 @@ export class EstacionamientosPage implements OnInit {
 
   filtrarLibres(){
     this.libres = this.seccion.filter((puesto: any) => puesto.estado == 'Desocupado' && puesto.favorito == false);
+    this.cantidadLibres = this.libres.length;
   }
 
   filtrarOcupados(){
     this.ocupados = this.seccion.filter((puesto: any) => puesto.estado == 'Ocupado' && puesto.favorito == false);
+    this.cantidadOcupados = this.ocupados.length;
   }
 
   filtrarFavoritos(){
-    this.favoritos = this.seccion.filter((puesto: any) => puesto.favorito == true);
+    this.favoritos = this.puestos.filter((puesto: any) => puesto.favorito == true);
+    this.cantidadFavoritos = this.favoritos.length;
   }
 
-  addFavoritos(id: String, favorito: Boolean){
+  filtrarDiscapacitados(){
+    this.discapacitados = this.puestos.filter((puesto: any) => puesto.discapacitado == true);
+    this.cantidadDiscapacitados = this.discapacitados.length;
+  }
+
+  async addFavoritos(id: String, favorito: Boolean){
     let copia = [...this.puestos];
     let index = copia.findIndex((puesto: any) => puesto._id === id);
     copia[index].favorito = !favorito;
@@ -76,14 +98,11 @@ export class EstacionamientosPage implements OnInit {
     this.filtrarOcupados();
     this.filtrarFavoritos();
     this.cdr.detectChanges();
-  }
+    (await this.database.updateEstacionamieno({favorito: copia[index].favorito}, copia[index]._id)).subscribe((data) => {
 
-  cambiarContenido() {
-    if (this.contenido == '¿Qué tal?') {
-      this.contenido = 'Hola';
-    } else { 
-      this.contenido = '¿Qué tal?';
-    }
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   async presentPopover(e: Event) {

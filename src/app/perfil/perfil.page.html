@@ -1,0 +1,81 @@
+<app-menu></app-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="principal">
+      <ion-buttons slot="start">
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Ajustes de Usuario - User Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <div class="form-container">
+      <h3>Datos de la cuenta</h3>
+      <h4>Nombre: {{this.user.nombre}}</h4>
+      <h4>Email: {{this.user.email}}</h4>
+      <h4>Turno: {{this.user.turno}}</h4>
+      <h3>Opciones de cuenta</h3>
+      <ion-list>
+  
+        <!-- Selección de Cambio -->      
+        <ion-item class="form-item">
+          <ion-label>Seleccionar cambio:</ion-label>
+          <ion-select placeholder="Select option - Selecciona una opci&oacute;n" (ionChange)="updateForm()" [(ngModel)]="selectedOption">
+            <ion-select-option value="name">Cambiar nombre</ion-select-option>
+            <ion-select-option value="email"> Cambiar correo</ion-select-option>
+            <ion-select-option value="password">Cambiar contraseña</ion-select-option>
+            <ion-select-option value="shift">Cambiar el turno</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- Formulario para Cambiar Contraseña -->
+        <ng-container *ngIf="selectedOption === 'password'">
+          <ion-item class="form-item">
+            <ion-label>Nueva Contraseña:</ion-label>
+            <ion-input type="password" #newPass></ion-input>
+          </ion-item>
+          <ion-item class="form-item">
+            <ion-label>Confirmar Contraseña: </ion-label>
+            <ion-input type="password" #confirmPass></ion-input>
+          </ion-item>
+          <ion-button expand="full" class="submit-button" (click)="cambiarPassword(newPass, confirmPass)">Guardar Cambios - Save Changes</ion-button>
+        </ng-container>
+  
+        <!-- Formulario para Cambiar Correo -->
+        <ng-container *ngIf="selectedOption === 'email'">
+          <ion-item class="form-item">
+            <ion-label>Nuevo Correo:</ion-label>
+            <ion-input type="email" #email></ion-input>
+          </ion-item>
+          <ion-button expand="full" class="submit-button" (click)="cambiarCorreo(email)">Guardar Cambios - Save Changes</ion-button>
+        </ng-container>
+  
+        <!-- Formulario para Cambiar Turno de Escuela -->
+        <ng-container *ngIf="selectedOption === 'shift'">
+          <ion-item class="form-item">
+            <ion-label>Nuevo turno:</ion-label>
+            <ion-select [(ngModel)]="turno">
+              <ion-select-option value="Matutino">Matutino</ion-select-option>
+              <ion-select-option value="Vespertino">Vespertino</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button expand="full" class="submit-button" (click)="cambiarTurno()">Guardar Cambios - Save Changes</ion-button>
+        </ng-container>
+  
+        <!-- Formulario para Cambiar Nombre -->
+        <ng-container *ngIf="selectedOption === 'name'">
+          <ion-item class="form-item">
+            <ion-label>Nuevo nombre:</ion-label>
+            <ion-input type="text" #nombre></ion-input>
+          </ion-item>
+          <ion-button expand="full" class="submit-button" (click)="cambiarNombre(nombre)">Guardar Cambios - Save Changes</ion-button>
+        </ng-container>
+  
+      </ion-list>
+
+    </div>
+  
+  </ion-content>
+</div>

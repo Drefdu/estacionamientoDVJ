@@ -12,11 +12,11 @@ export class PopoverComponent {
   constructor(private popoverController: PopoverController) {
   }
 
-  hola(op1: any, op2: any, op3: any, op4: any){
+  hola(op1: any, op3: any, op4: any){
 
     let opciones = {
       op1: op1.checked == true ?  op1.value : '',
-      op2: op2.checked == true ?  op2.value : '',
+      //op2: op2.checked == true ?  op2.value : '',
       op3: op3.checked == true ?  op3.value : '',
       op4: op4.checked == true ?  op4.value : ''
     }

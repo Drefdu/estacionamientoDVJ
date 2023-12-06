@@ -4,32 +4,32 @@
       <ion-avatar slot="start" class="p-2">
         <img alt="" src="../../../assets/logo.png" />
       </ion-avatar>
-      <ion-title>User name</ion-title>
+      <ion-title>{{user.nombre}}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content color="secundario">
+  <ion-content color="tertiary">
     <ion-list>
-      <ion-item class="item" href="/home" lines="none">
-        <ion-icon name="home-outline" slot="start"></ion-icon>
-        <ion-label class="label">Inicio</ion-label>
+      <ion-item class="item" href="/estacionamientos" lines="none" color="tertiary">
+        <ion-icon name="car-sport-outline" slot="start"></ion-icon>
+        <ion-label class="label">EstacionamientoH</ion-label>
       </ion-item>
-      <ion-item class="item" href="/home" lines="none">
+      <ion-item class="item" href="/estacionamiento-i" lines="none" color="tertiary">
         <ion-icon name="car-sport-outline" slot="start"></ion-icon>
         <ion-label class="label">Estacionamiento I</ion-label>
       </ion-item>
-      <ion-item class="item" href="/home" lines="none">
+      <ion-item class="item" href="/estacionamientoj" lines="none" color="tertiary">
         <ion-icon name="car-sport-outline" slot="start"></ion-icon>
         <ion-label class="label">Estacionamiento J</ion-label>
       </ion-item>
-      <ion-item class="item" href="/home" lines="none">
+      <ion-item class="item" href="/perfil" lines="none" color="tertiary">
         <ion-icon name="person-outline" slot="start"></ion-icon>
         <ion-label class="label">Perfil </ion-label>
       </ion-item>
-      <ion-item class="item" href="/home" lines="none">
+      <ion-item class="item" href="/about" lines="none" color="tertiary">
         <ion-icon name="information-circle-outline" slot="start"></ion-icon>
         <ion-label class="label">Sobre Nosotros </ion-label>
       </ion-item>
-      <ion-item class="item" href="/home" lines="none">
+      <ion-item class="item" lines="none" color="tertiary" (click)="cerrarSesion()" [button]="true">
         <ion-icon name="exit-outline" slot="start" color="danger"></ion-icon>
         <ion-label class="label">Cerrar Sesión</ion-label>
       </ion-item>

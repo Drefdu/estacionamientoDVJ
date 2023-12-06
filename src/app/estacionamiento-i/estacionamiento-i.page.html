@@ -1,0 +1,119 @@
+<app-menu ></app-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="principal">
+      <ion-buttons slot="start">
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button id="popover-button" (click)="presentPopover($event)">
+          <ion-icon name="filter-outline" slot="icon-only" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="d-flex justify-content-center w-100 fondo">
+      <div class="body">  
+        <div class="d-flex justify-content-center">
+          <h1 class="text-white"><b>Estacionamiento I</b></h1>
+        </div>
+        <div class=" d-flex justify-content-center">
+          <img src="../../assets/estacionamientoI.png" alt="">
+        </div>
+        <div class="d-flex justify-content-between mt-3"> 
+          <h2 class="text-white">Por favor ingrese una seccion: </h2>
+          <ion-list class="w-25">
+            <ion-item>
+              <ion-select (ionChange)="filtrarSeccion($event)">
+                <div slot="label">Seccion<ion-text></ion-text></div>
+                <ion-select-option value="A">A</ion-select-option>
+                <ion-select-option value="B">B</ion-select-option>
+                <ion-select-option value="C">C</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </div>
+        <h3 class="text-white">Puestos totales de la sección: {{cantidadTotal}}</h3>
+       <div *ngIf="opciones.op1 == 'favoritos'">
+        <h4 class="text-white">Puestos favoritos: {{cantidadFavoritos}}</h4>
+        <div class="row d-flex flex-wrap">
+          <div class="col-12 col-sm-3" *ngFor="let favorito of favoritos">
+            <ion-card class="favorito">
+              <ion-card-header>
+                <ion-card-title>Numero: {{favorito.numero}}</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                <ion-text>Estacionamiento: {{favorito.estacionamiento}}</ion-text><br>
+                <ion-text>Seccion: {{favorito.seccion}}</ion-text><br>
+                <ion-text>Estado: {{favorito.estado}}</ion-text><br>
+                <ion-text>Uso: Libre</ion-text>
+              </ion-card-content>
+    
+              <ion-item lines="none">
+                <ion-button fill="clear" slot="end" (click)="addFavoritos(favorito._id, favorito.favorito)">
+                  <ion-icon name="star" slot="icon-only" color="dark"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-card>
+          </div>
+        </div>
+       </div>
+        <div *ngIf="opciones.op4 == 'libres'">
+          <h4 class="text-white">Puestos libres: {{cantidadLibres}}</h4>
+          <div class="row d-flex flex-wrap">
+            <div class="col-12 col-sm-3" *ngFor="let libre of libres">
+              <ion-card class="libre">
+                <ion-card-header>
+                  <ion-card-title>Numero: {{libre.numero}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-text>Estacionamiento: {{libre.estacionamiento}}</ion-text><br>
+                  <ion-text>Seccion: {{libre.seccion}}</ion-text><br>
+                  <ion-text>Estado: {{libre.estado}}</ion-text><br>
+                  <ion-text>Uso: Libre</ion-text>
+                </ion-card-content>
+                <ion-item lines="none">
+                  <ion-button fill="clear" slot="end" (click)="addFavoritos(libre._id, libre.favorito)">
+                    <ion-icon name="star-outline" slot="icon-only" color="dark"></ion-icon>
+                  </ion-button>
+                </ion-item>
+              </ion-card>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="opciones.op3 == 'ocupados'">
+          <h4 class="text-white">Puestos ocupados: {{cantidadOcupados}}</h4>
+          <div class="row d-flex flex-wrap">
+            <div class="col-12 col-sm-3" *ngFor="let ocupado of ocupados">
+              <ion-card class="ocupado">
+                <ion-card-header>
+                  <ion-card-title>Numero: {{ocupado.numero}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-text>Estacionamiento: {{ocupado.estacionamiento}}</ion-text><br>
+                  <ion-text>Seccion: {{ocupado.seccion}}</ion-text><br>
+                  <ion-text>Estado: {{ocupado.estado}}</ion-text><br>
+                  <ion-text>Uso: Libre</ion-text>
+                </ion-card-content>
+                <ion-item lines="none">
+                  <ion-button fill="clear" slot="end" (click)="addFavoritos(ocupado._id, ocupado.favorito)">
+                    <ion-icon name="star-outline" slot="icon-only" color="dark"></ion-icon>
+                  </ion-button>
+                </ion-item>
+              </ion-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="text-center text-white">Inicio de sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="secundario">
+  <div class="contenedor">
+    <div class="body">
+      <div class="d-flex justify-content-center align-items-center">
+        <h1>Inicio de sesión</h1>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <img src="../../assets/logo.png" alt="">
+      </div>
+      <div class="p-4 d-flex justify-content-center align-items-center">
+        <div class="w-75">
+          <ion-item fill="outline" shape="round" class="mt-0"> 
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input #nombre required></ion-input>
+          </ion-item>
+          <ion-item fill="outline" shape="round" class="mt-0"> 
+            <ion-label position="floating">Correo electronico</ion-label>
+            <ion-input #correo required></ion-input>
+          </ion-item>
+          <ion-item fill="outline" shape="round" class="mt-0"> 
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input #password required type="password"></ion-input>
+          </ion-item>
+          <ion-item class="form-item">
+            <ion-label>Nuevo turno:</ion-label>
+            <ion-select [(ngModel)]="turno">
+              <ion-select-option value="Matutino">Matutino</ion-select-option>
+              <ion-select-option value="Vespertino">Vespertino</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-start">
+        <ion-button (click)="registro(correo, password, nombre)" color="principal">Registrarse</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+
+
+
+
+
+
+
+

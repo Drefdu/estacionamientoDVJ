@@ -1,116 +1,39 @@
-<app-menu ></app-menu>
+<app-menu></app-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="principal">
       <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
+        <ion-menu-button color="light"></ion-menu-button>
       </ion-buttons>
-      <ion-title>Estacionamiento A</ion-title>
+      <ion-title class="text-center text-white">Estacionamiento DVJ</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
-    <div class="d-flex justify-content-center align-items-center mt-5 bg-pink">
-      <div class="w-75"> 
-        <div class="row">
-          <div class="col-sm-7 col-12">
-            <p class="fs-3">Por favor seleccione la seccion en la que quiere estacionarse:</p>
-          </div>
-          <div class="col-sm-5 col-12 d-flex justify-content-end">
-            <div class="w-100">
-              <ion-list>
-                <ion-item>
-                  <ion-select (ionChange)="filtroSeccionButton($event)">
-                    <div slot="label">Seccion<ion-text></ion-text></div>
-                    <ion-select-option value="A">A</ion-select-option>
-                    <ion-select-option value="B">B</ion-select-option>
-                    <ion-select-option value="C">C</ion-select-option>
-                  </ion-select>
-                </ion-item>
-              </ion-list>
-            </div>
+  <ion-content color="secundario">
+    <div class="contenedor">
+      <div class="body">
+        <div class="d-flex justify-content-center align-items-center">
+          <h1>Bienvenido a Estacionamiento DVJ</h1>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          <img src="../../assets/logo.png" alt="">
+        </div>
+        <div class="p-4 d-flex justify-content-center align-items-center">
+          <div class="w-75 text-center">
+            <h4>Abre el menu en la parte superior izquierda para empezar a navegar por los estacionamientos</h4>
           </div>
         </div>
-        <div class="row w-100">
-          <div class="col-12 col-sm-3">
-            <p class="fs-4 mt-3 mb-3">Total de lugares: {{ Total == 0 ? "----" : Total}}</p>
-          </div>
-          <div class="col-12 col-sm-3">
-            <p class="fs-4 mt-3 mb-3">Lugares libres: {{ Libres == 0 ? "----" : Libres}}</p>
-          </div>
-          <div class="col-12 col-sm-3">
-            <p class="fs-4 mt-3 mb-3">Lugares ocupados: {{ Ocupados == 0 ? "----" : Ocupados}}</p>
-          </div>
+        <div class="d-flex justify-content-center">
+          <img src="../../assets/flecha-diagonal.png" alt="" max-widith="300px">
         </div>
-        <div class="row w-100">
-          <h2>Estacionamientos Favoritos</h2>
-          <div class="col-12 col-sm-3" *ngFor="let estacionamiento of estacionamientosFavoritos">
-            <ion-card [color]="estacionamiento.estado === 'Ocupado' ? 'medium' : 'warning'" class="{{ estacionamiento.estado === 'Ocupado' ? 'text-secondary' : '' }}">
-              <ion-card-header>
-                <div class="row">
-                  <div class="col-12">
-                    <ion-card-title>Lugar: {{ estacionamiento.numero }}</ion-card-title>
-                  </div>
-                  <div class="col-8 d-flex align-items-center">
-                    <ion-card-subtitle>Estado: {{ estacionamiento.estado }}</ion-card-subtitle>
-                  </div>
-                  <div class="col-4">
-                    <ion-button class="w-100" expand="fill" fill="clear" color="light" (click)="updateEstacionamientos(estacionamiento._id, estacionamiento.favorito)">
-                      <ion-icon slot="icon-only" name="star"></ion-icon>
-                    </ion-button>
-                  </div>
-                </div>
-              </ion-card-header>
-            </ion-card>            
-          </div>
-        </div>
-        <div class="row w-100">
-          <h2>Estacionamientos Libres</h2>
-          <div class="col-12 col-sm-3" *ngFor="let estacionamiento of estacionamientosLibres">
-            <ion-card color="success" class="">
-              <ion-card-header>
-                <div class="row">
-                  <div class="col-12">
-                    <ion-card-title>Lugar: {{estacionamiento.numero}}</ion-card-title>
-                  </div>
-                  <div class="col-8 d-flex align-items-center">
-                    <ion-card-subtitle>Estado: {{estacionamiento.estado}}</ion-card-subtitle>
-                  </div>
-                  <div class="col-4">
-                    <ion-button class="w-100" expand="fill" fill="clear" color="light" (click)="updateEstacionamientos(estacionamiento._id, estacionamiento.favorito)">
-                      <ion-icon slot="icon-only" name="star-outline"></ion-icon>
-                    </ion-button>
-                  </div>
-                </div>
-              </ion-card-header>
-            </ion-card>
-          </div>
-        </div>
-        <div class="row w-100">
-          <h2>Estacionamientos Ocupados</h2>
-          <div class="col-12 col-sm-3" *ngFor="let estacionamiento of estacionamientosOcupados">
-            <ion-card color="danger" class="">
-              <ion-card-header>
-                <div class="row">
-                  <div class="col-12">
-                    <ion-card-title>Lugar: {{estacionamiento.numero}}</ion-card-title>
-                  </div>
-                  <div class="col-8 d-flex align-items-center">
-                    <ion-card-subtitle>Estado: {{estacionamiento.estado}}</ion-card-subtitle>
-                  </div>
-                  <div class="col-4">
-                    <ion-button class="w-100" expand="fill" fill="clear" color="light" (click)="updateEstacionamientos(estacionamiento._id, estacionamiento.favorito)">
-                      <ion-icon slot="icon-only" name="star-outline"></ion-icon>
-                    </ion-button>
-                  </div>
-                </div>
-              </ion-card-header>
-            </ion-card>
-          </div>
+        <div class="d-flex justify-content-center align-items-start">
+          
         </div>
       </div>
     </div>
   </ion-content>
 </div>
+
+
 
 
 
